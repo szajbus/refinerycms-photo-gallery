@@ -37,10 +37,6 @@ module Refinery
 
 
       config.after_initialize do
-        Refinery::Pages::Tab.register do |tab|
-          register tab
-        end
-
         Refinery.register_engine(Refinery::PhotoGallery)
       end
     end
