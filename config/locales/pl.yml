@@ -90,6 +90,7 @@ pl:
         title: Tytuł
         description: Opis
       refinery/photo_gallery/album:
+        page_id: Strona
         title: Tytuł
         description: Opis
         longitude: Długość geograficzna

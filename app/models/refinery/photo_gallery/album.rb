@@ -4,6 +4,7 @@ module Refinery
       has_many :photos, :dependent => :destroy
       has_many :collection_albums , :dependent => :destroy
       has_many :collections, :through => :collection_albums
+      belongs_to :page, :class_name => Refinery::Page
 
 
       before_validation :set_path
@@ -11,7 +12,7 @@ module Refinery
       validates :path, :presence => true, :uniqueness => true
 
       attr_accessor :path_prefix
-      attr_accessible :title, :description, :address, :note, :tags, :longitude, :latitude, :path, :path_prefix, :collection_ids
+      attr_accessible :title, :description, :address, :note, :tags, :longitude, :latitude, :path, :path_prefix, :collection_ids, :page_id
       acts_as_indexed :fields => [:title, :description]
 
       self.per_page = Refinery::PhotoGallery.albums_per_page
@@ -42,7 +43,7 @@ module Refinery
       def set_path
         #Replaces special characters in tile
 
-         if self.path_prefix.blank?  &&  self.path.blank?
+        if self.path_prefix.blank?  &&  self.path.blank?
           self.path =  self.title.parameterize
         elsif self.path.present? && self.title.present?
           # dont't update path, when album has photos and we change title
