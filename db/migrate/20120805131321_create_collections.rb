@@ -1,6 +1,6 @@
 class CreateCollections < ActiveRecord::Migration
   def self.up
-    create_table Refinery::PhotoGallery::Collection.table_name do |t|
+    create_table :refinery_photo_gallery_collections do |t|
       t.string :title, :null => false
       t.text :description
 
@@ -9,6 +9,6 @@ class CreateCollections < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table Refinery::PhotoGallery::Collection.table_name
+    drop_table :refinery_photo_gallery_collections
   end
 end
