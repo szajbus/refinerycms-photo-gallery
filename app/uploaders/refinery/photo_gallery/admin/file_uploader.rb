@@ -65,12 +65,6 @@ module Refinery
           end
         end
 
-        version :error_wrong_preview_version do
-          def store_dir
-            "error/wrong_preview_version.png"
-          end
-        end
-
         # Add a white list of extensions which are allowed to be uploaded,
         def extension_white_list
           Refinery::PhotoGallery.extension_white_list

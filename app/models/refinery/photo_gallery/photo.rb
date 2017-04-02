@@ -29,7 +29,7 @@ module Refinery
           type = self.preview_type.blank? ? ext_type : self.preview_type
           file.url(type)
         rescue Exception => e
-          file.url(:error_wrong_preview_version)
+          "http://www.novelupdates.com/img/noimagefound.jpg"
         end
       end
 
@@ -74,4 +74,3 @@ module Refinery
     end
   end
 end
-
